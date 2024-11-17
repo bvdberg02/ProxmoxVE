@@ -72,7 +72,7 @@ if [ ! -d "/opt/netbox-${RELEASE}" ]; then
   
   OLD_VERSION_PATH=$(ls -d /opt/netbox-*/)
   wget -q "https://github.com/netbox-community/netbox/archive/refs/tags/v${RELEASE}.zip"
-  unzip -q -xzf "v${RELEASE}.tar.gz" -C /opt
+  unzip -q -xzf "v${RELEASE}.zip" -C /opt
   ln -sfn "/opt/netbox-${RELEASE}/" /opt/netbox
   
   
@@ -100,11 +100,11 @@ if [ ! -d "/opt/netbox-${RELEASE}" ]; then
   msg_ok "Started ${APP}"
 
   msg_info "Cleaning up"
-  rm "v${RELEASE}.tar.gz"
+  rm "v${RELEASE}.zip"
   rm -rf "${OLD_VERSION_PATH}"
   msg_ok "Cleaned"
 
-  msg_ok "Updated $APP LXC"
+  msg_ok "Updated $APP successfully"
 else
   msg_ok "No update required. ${APP} is already at ${RELEASE}"
 fi
