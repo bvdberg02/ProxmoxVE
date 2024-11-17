@@ -54,18 +54,27 @@ function default_settings() {
 
 function update_script() {
 header_info
+check_container_storage
+check_container_resources
 if [[ ! -f /opt/netbox/netbox/netbox/configuration.py ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
 RELEASE=$(curl -s https://api.github.com/repos/netbox-community/netbox/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
 if [ ! -d "/opt/netbox-${RELEASE}" ]; then
+
+
   msg_info "Updating $APP LXC"
+
+  msg_info "Stopping ${APP}"
+  systemctl stop netbox netbox-rq
+  msg_ok "Stopped ${APP}"
+
   apt-get update &>/dev/null
   apt-get -y upgrade &>/dev/null
   
   OLD_VERSION_PATH=$(ls -d /opt/netbox-*/)
-  wget -q "https://github.com/netbox-community/netbox/archive/refs/tags/v${RELEASE}.tar.gz"
-  tar -xzf "v${RELEASE}.tar.gz" -C /opt
+  wget -q "https://github.com/netbox-community/netbox/archive/refs/tags/v${RELEASE}.zip"
+  unzip -q -xzf "v${RELEASE}.tar.gz" -C /opt
   ln -sfn "/opt/netbox-${RELEASE}/" /opt/netbox
-  rm "v${RELEASE}.tar.gz"
+  
   
   cp "${OLD_VERSION_PATH}netbox/netbox/configuration.py" /opt/netbox/netbox/netbox/
   cp -pr "${OLD_VERSION_PATH}netbox/media/" /opt/netbox/netbox/
@@ -81,9 +90,20 @@ if [ ! -d "/opt/netbox-${RELEASE}" ]; then
     cp "${OLD_VERSION_PATH}netbox/netbox/ldap_config.py" /opt/netbox/netbox/netbox/
   fi
 
-  rm -r "${OLD_VERSION_PATH}"
+  
   /opt/netbox/upgrade.sh &>/dev/null
-  systemctl restart --now netbox netbox-rq
+
+  
+
+  msg_info "Starting ${APP}"
+  systemctl start netbox netbox-rq
+  msg_ok "Started ${APP}"
+
+  msg_info "Cleaning up"
+  rm "v${RELEASE}.tar.gz"
+  rm -rf "${OLD_VERSION_PATH}"
+  msg_ok "Cleaned"
+
   msg_ok "Updated $APP LXC"
 else
   msg_ok "No update required. ${APP} is already at ${RELEASE}"
