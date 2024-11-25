@@ -14,7 +14,7 @@
     "install_methods": [
         {
             "type": "default",
-            "installer": "bash -c \"$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/scrutiny.sh)\"",
+            "installer": "bash -c \"$(wget -qLO - https://github.com/bvdberg02/ProxmoxVE/raw/main/ct/scrutiny.sh)\"",
             "resources": {
                 "cpu": "",
                 "ram": "",
