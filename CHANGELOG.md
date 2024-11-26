@@ -1,6 +1,6 @@
 <div align="center">
   <a href="#">
-    <img src="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/images/logo.png" height="100px" />
+    <img src="https://raw.githubusercontent.com/bvdberg02/ProxmoxVE/main/misc/images/logo.png" height="100px" />
  </a>
 </div>
 <h1 align="center">Changelog</h1>
@@ -22,7 +22,7 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### 🌐 Website
 
-- Fix website url in Zoraxy documentation [@miggi92](https://github.com/miggi92) ([#506](https://github.com/community-scripts/ProxmoxVE/pull/506))
+- Fix website url in Zoraxy documentation [@miggi92](https://github.com/miggi92) ([#506](https://github.com/bvdberg02/ProxmoxVE/pull/506))
 
 ## 2024-11-24
 
@@ -30,11 +30,11 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### ✨ New Scripts
 
-- New script: listmonk LXC [@bvdberg01](https://github.com/bvdberg01) ([#442](https://github.com/community-scripts/ProxmoxVE/pull/442))
+- New script: listmonk LXC [@bvdberg01](https://github.com/bvdberg01) ([#442](https://github.com/bvdberg02/ProxmoxVE/pull/442))
 
 ### 🧰 Maintenance
 
-- Add release title to github-release.yml [@havardthom](https://github.com/havardthom) ([#481](https://github.com/community-scripts/ProxmoxVE/pull/481))
+- Add release title to github-release.yml [@havardthom](https://github.com/havardthom) ([#481](https://github.com/bvdberg02/ProxmoxVE/pull/481))
 
 ## 2024-11-23
 
@@ -42,20 +42,20 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### 🚀 Updated Scripts
 
-- Fix Actual Budget install missing build tools [@cour64](https://github.com/cour64) ([#455](https://github.com/community-scripts/ProxmoxVE/pull/455))
-- Fix Vikunja Update [@MickLesk](https://github.com/MickLesk) ([#440](https://github.com/community-scripts/ProxmoxVE/pull/440))
-- Patch PostInstall-Script to PVE 8.3 | Add PVE 8.3 in Security [@MickLesk](https://github.com/MickLesk) ([#431](https://github.com/community-scripts/ProxmoxVE/pull/431))
+- Fix Actual Budget install missing build tools [@cour64](https://github.com/cour64) ([#455](https://github.com/bvdberg02/ProxmoxVE/pull/455))
+- Fix Vikunja Update [@MickLesk](https://github.com/MickLesk) ([#440](https://github.com/bvdberg02/ProxmoxVE/pull/440))
+- Patch PostInstall-Script to PVE 8.3 | Add PVE 8.3 in Security [@MickLesk](https://github.com/MickLesk) ([#431](https://github.com/bvdberg02/ProxmoxVE/pull/431))
 
 ### 🌐 Website
 
-- Frontend: fix reported issue with json-editor page and add OS select in installmethod [@BramSuurdje](https://github.com/BramSuurdje) ([#426](https://github.com/community-scripts/ProxmoxVE/pull/426))
-- Fixed Typo [@BenBakDev](https://github.com/BenBakDev) ([#441](https://github.com/community-scripts/ProxmoxVE/pull/441))
+- Frontend: fix reported issue with json-editor page and add OS select in installmethod [@BramSuurdje](https://github.com/BramSuurdje) ([#426](https://github.com/bvdberg02/ProxmoxVE/pull/426))
+- Fixed Typo [@BenBakDev](https://github.com/BenBakDev) ([#441](https://github.com/bvdberg02/ProxmoxVE/pull/441))
 
 ### 🧰 Maintenance
 
-- Fix newline issue in changelog pr [@havardthom](https://github.com/havardthom) ([#474](https://github.com/community-scripts/ProxmoxVE/pull/474))
-- Remove newline in changelog-pr action [@havardthom](https://github.com/havardthom) ([#461](https://github.com/community-scripts/ProxmoxVE/pull/461))
-- Add action that creates github release based on CHANGELOG.md [@havardthom](https://github.com/havardthom) ([#462](https://github.com/community-scripts/ProxmoxVE/pull/462))
+- Fix newline issue in changelog pr [@havardthom](https://github.com/havardthom) ([#474](https://github.com/bvdberg02/ProxmoxVE/pull/474))
+- Remove newline in changelog-pr action [@havardthom](https://github.com/havardthom) ([#461](https://github.com/bvdberg02/ProxmoxVE/pull/461))
+- Add action that creates github release based on CHANGELOG.md [@havardthom](https://github.com/havardthom) ([#462](https://github.com/bvdberg02/ProxmoxVE/pull/462))
 
 ## 2024-11-21
 
@@ -63,24 +63,24 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### ✨ New Scripts
 
-- Add new LXC: NextPVR [@MickLesk](https://github.com/MickLesk) ([#391](https://github.com/community-scripts/ProxmoxVE/pull/391))
-- Add new LXC: Kimai [@MickLesk](https://github.com/MickLesk) ([#397](https://github.com/community-scripts/ProxmoxVE/pull/397))
+- Add new LXC: NextPVR [@MickLesk](https://github.com/MickLesk) ([#391](https://github.com/bvdberg02/ProxmoxVE/pull/391))
+- Add new LXC: Kimai [@MickLesk](https://github.com/MickLesk) ([#397](https://github.com/bvdberg02/ProxmoxVE/pull/397))
 
 ### 🚀 Updated Scripts
 
-- Add .env file support for HomeBox [@404invalid-user](https://github.com/404invalid-user) ([#383](https://github.com/community-scripts/ProxmoxVE/pull/383))
-- RDTClient Remove .NET 8.0 | Add .NET 9.0 [@MickLesk](https://github.com/MickLesk) ([#413](https://github.com/community-scripts/ProxmoxVE/pull/413))
-- Remove old resource message from vaultwarden [@havardthom](https://github.com/havardthom) ([#402](https://github.com/community-scripts/ProxmoxVE/pull/402))
+- Add .env file support for HomeBox [@404invalid-user](https://github.com/404invalid-user) ([#383](https://github.com/bvdberg02/ProxmoxVE/pull/383))
+- RDTClient Remove .NET 8.0 | Add .NET 9.0 [@MickLesk](https://github.com/MickLesk) ([#413](https://github.com/bvdberg02/ProxmoxVE/pull/413))
+- Remove old resource message from vaultwarden [@havardthom](https://github.com/havardthom) ([#402](https://github.com/bvdberg02/ProxmoxVE/pull/402))
 
 ### 🌐 Website
 
-- Add PostInstall Documentation to zigbee2mqtt.json [@MickLesk](https://github.com/MickLesk) ([#411](https://github.com/community-scripts/ProxmoxVE/pull/411))
-- Fix incorrect hdd values in json files [@havardthom](https://github.com/havardthom) ([#403](https://github.com/community-scripts/ProxmoxVE/pull/403))
-- Website: Add discord link to navbar [@BramSuurdje](https://github.com/BramSuurdje) ([#405](https://github.com/community-scripts/ProxmoxVE/pull/405))
+- Add PostInstall Documentation to zigbee2mqtt.json [@MickLesk](https://github.com/MickLesk) ([#411](https://github.com/bvdberg02/ProxmoxVE/pull/411))
+- Fix incorrect hdd values in json files [@havardthom](https://github.com/havardthom) ([#403](https://github.com/bvdberg02/ProxmoxVE/pull/403))
+- Website: Add discord link to navbar [@BramSuurdje](https://github.com/BramSuurdje) ([#405](https://github.com/bvdberg02/ProxmoxVE/pull/405))
 
 ### 🧰 Maintenance
 
-- Use github app in changelog-pr.yml and add auto approval [@havardthom](https://github.com/havardthom) ([#416](https://github.com/community-scripts/ProxmoxVE/pull/416))
+- Use github app in changelog-pr.yml and add auto approval [@havardthom](https://github.com/havardthom) ([#416](https://github.com/bvdberg02/ProxmoxVE/pull/416))
 
 ## 2024-11-20
 
@@ -88,12 +88,12 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### 🚀 Updated Scripts
 
-- LinkWarden: Moved PATH into service [@newzealandpaul](https://github.com/newzealandpaul) ([#376](https://github.com/community-scripts/ProxmoxVE/pull/376))
+- LinkWarden: Moved PATH into service [@newzealandpaul](https://github.com/newzealandpaul) ([#376](https://github.com/bvdberg02/ProxmoxVE/pull/376))
 
 ### 🌐 Website
 
-- Replace dash "-" with "/" in metadata [@newzealandpaul](https://github.com/newzealandpaul) ([#374](https://github.com/community-scripts/ProxmoxVE/pull/374))
-- Proxmox VE Cron LXC Updater: Add tteck's notes. [@newzealandpaul](https://github.com/newzealandpaul) ([#378](https://github.com/community-scripts/ProxmoxVE/pull/378))
+- Replace dash "-" with "/" in metadata [@newzealandpaul](https://github.com/newzealandpaul) ([#374](https://github.com/bvdberg02/ProxmoxVE/pull/374))
+- Proxmox VE Cron LXC Updater: Add tteck's notes. [@newzealandpaul](https://github.com/newzealandpaul) ([#378](https://github.com/bvdberg02/ProxmoxVE/pull/378))
 
 ## 2024-11-19
 
@@ -101,19 +101,19 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### 🚀 Updated Scripts
 
-- Fix Wallos Update [@MickLesk](https://github.com/MickLesk) ([#339](https://github.com/community-scripts/ProxmoxVE/pull/339))
-- Linkwarden: Move Secret Key above in install.sh [@MickLesk](https://github.com/MickLesk) ([#356](https://github.com/community-scripts/ProxmoxVE/pull/356))
-- Linkwarden: add gnupg to installed dependencies [@erfansamandarian](https://github.com/erfansamandarian) ([#349](https://github.com/community-scripts/ProxmoxVE/pull/349))
+- Fix Wallos Update [@MickLesk](https://github.com/MickLesk) ([#339](https://github.com/bvdberg02/ProxmoxVE/pull/339))
+- Linkwarden: Move Secret Key above in install.sh [@MickLesk](https://github.com/MickLesk) ([#356](https://github.com/bvdberg02/ProxmoxVE/pull/356))
+- Linkwarden: add gnupg to installed dependencies [@erfansamandarian](https://github.com/erfansamandarian) ([#349](https://github.com/bvdberg02/ProxmoxVE/pull/349))
 
 ### 🌐 Website
 
-- Add *Arr Suite category for Website [@MickLesk](https://github.com/MickLesk) ([#370](https://github.com/community-scripts/ProxmoxVE/pull/370))
-- Refactor Buttons component to use a ButtonLink for cleaner code, simplifying the source URL generation and layout [@BramSuurdje](https://github.com/BramSuurdje) ([#371](https://github.com/community-scripts/ProxmoxVE/pull/371))
+- Add *Arr Suite category for Website [@MickLesk](https://github.com/MickLesk) ([#370](https://github.com/bvdberg02/ProxmoxVE/pull/370))
+- Refactor Buttons component to use a ButtonLink for cleaner code, simplifying the source URL generation and layout [@BramSuurdje](https://github.com/BramSuurdje) ([#371](https://github.com/bvdberg02/ProxmoxVE/pull/371))
 
 ### 🧰 Maintenance
 
-- [github]: add new Frontend_Report / Issue_Report & optimize config.yml [@MickLesk](https://github.com/MickLesk) ([#226](https://github.com/community-scripts/ProxmoxVE/pull/226))
-- [chore] Update FUNDING.yml [@MickLesk](https://github.com/MickLesk) ([#352](https://github.com/community-scripts/ProxmoxVE/pull/352))
+- [github]: add new Frontend_Report / Issue_Report & optimize config.yml [@MickLesk](https://github.com/MickLesk) ([#226](https://github.com/bvdberg02/ProxmoxVE/pull/226))
+- [chore] Update FUNDING.yml [@MickLesk](https://github.com/MickLesk) ([#352](https://github.com/bvdberg02/ProxmoxVE/pull/352))
 
 ## 2024-11-18
 
@@ -121,26 +121,26 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### 💥 Breaking Changes
 
-- Massive Update - Remove old storage check, add new storage and resource check to all scripts - Remove downscaling with pct set [@MickLesk](https://github.com/MickLesk) ([#333](https://github.com/community-scripts/ProxmoxVE/pull/333))
+- Massive Update - Remove old storage check, add new storage and resource check to all scripts - Remove downscaling with pct set [@MickLesk](https://github.com/MickLesk) ([#333](https://github.com/bvdberg02/ProxmoxVE/pull/333))
 
 ### ✨ New Scripts
 
-- new scripts for NetBox [@bvdberg01](https://github.com/bvdberg01) ([#308](https://github.com/community-scripts/ProxmoxVE/pull/308))
+- new scripts for NetBox [@bvdberg01](https://github.com/bvdberg01) ([#308](https://github.com/bvdberg02/ProxmoxVE/pull/308))
 
 ### 🚀 Updated Scripts
 
-- Support SSE 4.2 in Frigate script [@anishp55](https://github.com/anishp55) ([#328](https://github.com/community-scripts/ProxmoxVE/pull/328))
-- Bugfix: Wallos Patch (Cron Log & Media Backup)  [@MickLesk](https://github.com/MickLesk) ([#331](https://github.com/community-scripts/ProxmoxVE/pull/331))
-- Linkwarden - Harmonize Script, Add Monolith & Bugfixing [@MickLesk](https://github.com/MickLesk) ([#306](https://github.com/community-scripts/ProxmoxVE/pull/306))
-- Fix optional installs in Cockpit LXC [@havardthom](https://github.com/havardthom) ([#317](https://github.com/community-scripts/ProxmoxVE/pull/317))
+- Support SSE 4.2 in Frigate script [@anishp55](https://github.com/anishp55) ([#328](https://github.com/bvdberg02/ProxmoxVE/pull/328))
+- Bugfix: Wallos Patch (Cron Log & Media Backup)  [@MickLesk](https://github.com/MickLesk) ([#331](https://github.com/bvdberg02/ProxmoxVE/pull/331))
+- Linkwarden - Harmonize Script, Add Monolith & Bugfixing [@MickLesk](https://github.com/MickLesk) ([#306](https://github.com/bvdberg02/ProxmoxVE/pull/306))
+- Fix optional installs in Cockpit LXC [@havardthom](https://github.com/havardthom) ([#317](https://github.com/bvdberg02/ProxmoxVE/pull/317))
 
 ### 🌐 Website
 
-- Added additional instructions to nginxproxymanager [@newzealandpaul](https://github.com/newzealandpaul) ([#329](https://github.com/community-scripts/ProxmoxVE/pull/329))
+- Added additional instructions to nginxproxymanager [@newzealandpaul](https://github.com/newzealandpaul) ([#329](https://github.com/bvdberg02/ProxmoxVE/pull/329))
 
 ### 🧰 Maintenance
 
-- Verify changes before commit in changelog-pr.yml [@havardthom](https://github.com/havardthom) ([#310](https://github.com/community-scripts/ProxmoxVE/pull/310))
+- Verify changes before commit in changelog-pr.yml [@havardthom](https://github.com/havardthom) ([#310](https://github.com/bvdberg02/ProxmoxVE/pull/310))
 
 ## 2024-11-17
 
@@ -148,32 +148,32 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### ✨ New Scripts
 
-- Add Komga LXC [@DysfunctionalProgramming](https://github.com/DysfunctionalProgramming) ([#275](https://github.com/community-scripts/ProxmoxVE/pull/275))
+- Add Komga LXC [@DysfunctionalProgramming](https://github.com/DysfunctionalProgramming) ([#275](https://github.com/bvdberg02/ProxmoxVE/pull/275))
 
 ### 🚀 Updated Scripts
 
-- Tweak: Patch Prometheus for v.3.0.0 [@MickLesk](https://github.com/MickLesk) ([#300](https://github.com/community-scripts/ProxmoxVE/pull/300))
-- Wavelog - Small Adjustment [@HB9HIL](https://github.com/HB9HIL) ([#292](https://github.com/community-scripts/ProxmoxVE/pull/292))
+- Tweak: Patch Prometheus for v.3.0.0 [@MickLesk](https://github.com/MickLesk) ([#300](https://github.com/bvdberg02/ProxmoxVE/pull/300))
+- Wavelog - Small Adjustment [@HB9HIL](https://github.com/HB9HIL) ([#292](https://github.com/bvdberg02/ProxmoxVE/pull/292))
 
 ### 🌐 Website
 
-- Add Note for Komga Installation (Website)  [@MickLesk](https://github.com/MickLesk) ([#303](https://github.com/community-scripts/ProxmoxVE/pull/303))
-- Fix Komga logo [@havardthom](https://github.com/havardthom) ([#298](https://github.com/community-scripts/ProxmoxVE/pull/298))
+- Add Note for Komga Installation (Website)  [@MickLesk](https://github.com/MickLesk) ([#303](https://github.com/bvdberg02/ProxmoxVE/pull/303))
+- Fix Komga logo [@havardthom](https://github.com/havardthom) ([#298](https://github.com/bvdberg02/ProxmoxVE/pull/298))
 
 ### 🧰 Maintenance
 
-- Add github workflow for automatic changelog PR  [@havardthom](https://github.com/havardthom) ([#299](https://github.com/community-scripts/ProxmoxVE/pull/299))
-- Use website label in autolabeler [@havardthom](https://github.com/havardthom) ([#297](https://github.com/community-scripts/ProxmoxVE/pull/297))
+- Add github workflow for automatic changelog PR  [@havardthom](https://github.com/havardthom) ([#299](https://github.com/bvdberg02/ProxmoxVE/pull/299))
+- Use website label in autolabeler [@havardthom](https://github.com/havardthom) ([#297](https://github.com/bvdberg02/ProxmoxVE/pull/297))
 
 ## 2024-11-16
 
 ### Changed
 
-- **Recyclarr LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/recyclarr-install.sh)
+- **Recyclarr LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/recyclarr-install.sh)
   - NEW Script
-- **Wavelog LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/wavelog-install.sh)
+- **Wavelog LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/wavelog-install.sh)
   - NEW Script
-- **Vaultwarden LXC:** RAM has now been increased to 6144 MB [(PR)](https://github.com/community-scripts/ProxmoxVE/pull/285)
+- **Vaultwarden LXC:** RAM has now been increased to 6144 MB [(PR)](https://github.com/bvdberg02/ProxmoxVE/pull/285)
   - Breaking Change
 
 
@@ -181,47 +181,47 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **Bookstack LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/bookstack-install.sh)
+- **Bookstack LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/bookstack-install.sh)
   - NEW Script
-- **Vikunja LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/vikunja-install.sh)
+- **Vikunja LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/vikunja-install.sh)
   - NEW Script
 
 ## 2024-11-04
 
 ### Breaking Change
-- **Automatic Update of Repository:** The update function now uses the new repository `community-scripts/ProxmoxVE` for Debian/Ubuntu LXC containers.
+- **Automatic Update of Repository:** The update function now uses the new repository `bvdberg02/ProxmoxVE` for Debian/Ubuntu LXC containers.
   
   ```bash
-  bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/update-repo.sh)"
+  bash -c "$(wget -qLO - https://github.com/bvdberg02/ProxmoxVE/raw/main/misc/update-repo.sh)"
 
 ## 2024-10-31
 
 ### Changed
 
-- **NZBGet LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/nzbget-install.sh)
+- **NZBGet LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/nzbget-install.sh)
   - NEW Script
-- **Memos LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/memos-install.sh)
+- **Memos LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/memos-install.sh)
   - NEW Script
 
 ## 2024-10-27
 
 ### Changed
 
-- **Open WebUI LXC** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/8a21f6e7f025a911865395d4c0fa9a001bd0d512)
+- **Open WebUI LXC** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/8a21f6e7f025a911865395d4c0fa9a001bd0d512)
   - Refactor Script to add an option to install Ollama.
 
 ## 2024-10-26
 
 ### Changed
 
-- **AdventureLog LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/adventurelog-install.sh)
+- **AdventureLog LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/adventurelog-install.sh)
   - NEW Script
 
 ## 2024-10-25
 
 ### Changed
 
-- **Zoraxy LXC** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/468a5d367ded4cf453a1507452e112ac3e234e2a)
+- **Zoraxy LXC** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/468a5d367ded4cf453a1507452e112ac3e234e2a)
   - Switch built from source to a pre-compiled binary version.
   - Breaking Change
 
@@ -229,41 +229,41 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **Wallos LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/wallos-install.sh)
+- **Wallos LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/wallos-install.sh)
   - NEW Script
-- **Open WebUI LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/openwebui-install.sh)
+- **Open WebUI LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/openwebui-install.sh)
   - NEW Script
 
 ## 2024-10-19
 
 ### Changed
 
-- **Cockpit LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/cockpit-install.sh)
+- **Cockpit LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/cockpit-install.sh)
   - NEW Script
-- **Neo4j LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/neo4j-install.sh)
+- **Neo4j LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/neo4j-install.sh)
   - NEW Script
 
 ## 2024-10-18
 
 ### Changed
 
-- **ArchiveBox LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/archivebox-install.sh)
+- **ArchiveBox LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/archivebox-install.sh)
   - NEW Script
 
 ## 2024-10-15
 
 ### Changed
 
-- **evcc LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/evcc-install.sh)
+- **evcc LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/evcc-install.sh)
   - NEW Script
 
 ## 2024-10-10
 
 ### Changed
 
-- **MySQL LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/mysql-install.sh)
+- **MySQL LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/mysql-install.sh)
   - NEW Script
-- **Tianji LXC** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/4c83a790ac9b040da1f11ad2cbe13d3fc5f480e9)
+- **Tianji LXC** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/4c83a790ac9b040da1f11ad2cbe13d3fc5f480e9)
   - Breaking Change
   - Switch from `pm2` process management to `systemd`
 
@@ -271,7 +271,7 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **Home Assistant Core LXC** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/f2937febe69b2bad8b3a14eb84aa562a8f14cc6a) [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/f2966ced7f457fd506f865f7f5b70ea12c4b0049)
+- **Home Assistant Core LXC** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/f2937febe69b2bad8b3a14eb84aa562a8f14cc6a) [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/f2966ced7f457fd506f865f7f5b70ea12c4b0049)
   - Refactor Code
   - Breaking Change
   - Home Assistant has transitioned to using `uv` for managing the virtual environment and installing additional modules.
@@ -280,23 +280,23 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **HomeBox LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/homebox-install.sh)
+- **HomeBox LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/homebox-install.sh)
   - NEW Script
-- **Zipline LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/zipline-install.sh)
+- **Zipline LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/zipline-install.sh)
   - NEW Script
 
 ## 2024-09-13
 
 ### Changed
 
-- **Tianji LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/tianji-install.sh)
+- **Tianji LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/tianji-install.sh)
   - NEW Script
 
 ## 2024-08-21
 
 ### Changed
 
-- **WireGuard LXC** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/723365a79df7cc0fd29b1af8f7ef200a7e0921b1)
+- **WireGuard LXC** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/723365a79df7cc0fd29b1af8f7ef200a7e0921b1)
   - Refactor Code
   - Breaking Change
 
@@ -304,7 +304,7 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **CommaFeed LXC** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/0a33d1739ec3a49011411929bd46a260e92e99f9)
+- **CommaFeed LXC** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/0a33d1739ec3a49011411929bd46a260e92e99f9)
   - Refactor Code
   - Breaking Change
 
@@ -312,30 +312,30 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **lldap LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/lldap-install.sh)
+- **lldap LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/lldap-install.sh)
   - NEW Script
 
 ## 2024-07-26
 
 ### Changed
 
-- **Gitea LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/gitea-install.sh)
+- **Gitea LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/gitea-install.sh)
   - NEW Script
 
 ## 2024-06-30
 
 ### Changed
 
-- **All Scripts** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/39ea1d4a20b83c07d084ebafdc811eec3548f289)
+- **All Scripts** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/39ea1d4a20b83c07d084ebafdc811eec3548f289)
   - Requires Proxmox Virtual Environment version 8.1 or later.
 
 ## 2024-06-27
 
 ### Changed
 
-- **Kubo LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/kubo-install.sh)
+- **Kubo LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/kubo-install.sh)
   - NEW Script
-- **RabbitMQ LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/rabbitmq-install.sh)
+- **RabbitMQ LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/rabbitmq-install.sh)
   - NEW Script
 - **Scrutiny LXC**
   - Removed from website, broken.
@@ -351,27 +351,27 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **MySpeed LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/myspeed-install.sh)
+- **MySpeed LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/myspeed-install.sh)
   - NEW Script
 
 ## 2024-06-13
 
 ### Changed
 
-- **PeaNUT LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/peanut-install.sh)
+- **PeaNUT LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/peanut-install.sh)
   - NEW Script
 - **Website**
   - If the Changelog has changed recently, the link on the website will pulse.
-- **Spoolman LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/spoolman-install.sh)
+- **Spoolman LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/spoolman-install.sh)
   - NEW Script
 
 ## 2024-06-12
 
 ### Changed
 
-- **MeTube LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/metube-install.sh)
+- **MeTube LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/metube-install.sh)
   - NEW Script
-- **Matterbridge LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/matterbridge-install.sh)
+- **Matterbridge LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/matterbridge-install.sh)
   - NEW Script
 - **Website**
   - Reopen the gh-pages site (https://tteck.github.io/Proxmox/) 
@@ -380,14 +380,14 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **Zabbix LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/zabbix-install.sh)
+- **Zabbix LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/zabbix-install.sh)
   - NEW Script
 
 ## 2024-06-06
 
 ### Changed
 
-- **Petio LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/petio-install.sh)
+- **Petio LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/petio-install.sh)
   - NEW Script
 - **Website**
   - Important notices will now be displayed on the landing page.
@@ -396,14 +396,14 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 ### Changed
 
-- **FlareSolverr LXC** [(View Source)](https://github.com/community-scripts/ProxmoxVE/blob/main/install/flaresolverr-install.sh)
+- **FlareSolverr LXC** [(View Source)](https://github.com/bvdberg02/ProxmoxVE/blob/main/install/flaresolverr-install.sh)
   - NEW Script
 
 ## 2024-05-31
 
 ### Changed
 
-- **Advanced Settings** [(Commit)](https://github.com/community-scripts/ProxmoxVE/commit/fc9dff220b4ea426d3a75178ad8accacae4683ca)
+- **Advanced Settings** [(Commit)](https://github.com/bvdberg02/ProxmoxVE/commit/fc9dff220b4ea426d3a75178ad8accacae4683ca)
   - Passwords are now masked
 
 ## 2024-05-30
@@ -1231,7 +1231,7 @@ Do not break established syntax in this file, as it is automatically updated by 
 ### Changed
 
 - **Proxmox VE Monitor-All**
-  - Skip instances based on onboot and templates. [8c2a3cc](https://github.com/community-scripts/ProxmoxVE/commit/8c2a3cc4d774fa13d17f695d6bdf9a4deedb1372). 
+  - Skip instances based on onboot and templates. [8c2a3cc](https://github.com/bvdberg02/ProxmoxVE/commit/8c2a3cc4d774fa13d17f695d6bdf9a4deedb1372). 
 
 ## 2023-06-12
 
@@ -1367,7 +1367,7 @@ Do not break established syntax in this file, as it is automatically updated by 
 
 - **InfluxDB LXC**
   - Choosing InfluxDB v1 will result in Chronograf being installed automatically.
-- **[User Submitted Guides](https://github.com/community-scripts/ProxmoxVE/blob/main/USER_SUBMITTED_GUIDES.md)**
+- **[User Submitted Guides](https://github.com/bvdberg02/ProxmoxVE/blob/main/USER_SUBMITTED_GUIDES.md)**
   -  Informative guides that demonstrate how to install various software packages using Proxmox VE Helper Scripts.
 
 ## 2023-04-14
@@ -1761,7 +1761,7 @@ Do not break established syntax in this file, as it is automatically updated by 
 ### Changed
 
 - **Proxmox LXC Updater** 
-  - Now updates Ubuntu, Debian, Devuan, Alpine Linux, CentOS-Rocky-Alma, Fedora, ArchLinux [(@Uruknara)](https://github.com/community-scripts/ProxmoxVE/commits?author=Uruknara)
+  - Now updates Ubuntu, Debian, Devuan, Alpine Linux, CentOS-Rocky-Alma, Fedora, ArchLinux [(@Uruknara)](https://github.com/bvdberg02/ProxmoxVE/commits?author=Uruknara)
 
 ## 2022-11-13
 
