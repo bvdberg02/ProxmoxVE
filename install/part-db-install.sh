@@ -50,10 +50,11 @@ DB_PASS=$(openssl rand -base64 18 | tr -dc 'a-zA-Z0-9' | cut -c1-13)
 $STD sudo -u postgres psql -c "CREATE ROLE $DB_USER WITH LOGIN PASSWORD '$DB_PASS';"
 $STD sudo -u postgres psql -c "CREATE DATABASE $DB_NAME WITH OWNER $DB_USER TEMPLATE template0;"
 {
-echo "Part-DB Credentials"
+echo "Part-DB Database Credentials"
 echo -e "Part-DB Database User: \e[32m$DB_USER\e[0m"
 echo -e "Part-DB Database Password: \e[32m$DB_PASS\e[0m"
 echo -e "Part-DB Database Name: \e[32m$DB_NAME\e[0m"
+echo ""
 } >> ~/partdb.creds
 msg_ok "Set up PostgreSQL"
 
@@ -78,7 +79,14 @@ $STD sudo -u www-data composer install --no-dev -o -n
 $STD yarn install
 $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
-sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/temp
+sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/database-migration
+ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration)
+
+{
+echo "Part-DB Admin Credentials"
+echo -e "Part-DB Admin User: \e[32madmin\e[0m"
+echo -e "Part-DB Admin User: \e[32m$ADMIN_PASS\e[0m"
+} >> ~/partdb.creds
 
 cat <<EOF >/etc/apache2/sites-available/partdb.conf
 <VirtualHost *:80>
