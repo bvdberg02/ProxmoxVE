@@ -57,13 +57,19 @@ echo -e "Part-DB Database Name: \e[32m$DB_NAME\e[0m"
 } >> ~/partdb.creds
 msg_ok "Set up PostgreSQL"
 
+msg_info "Install yarn"
+  curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+  apt-get update
+  apt-get install -y yarn
+msg_ok "Installed yarn"
+
 msg_info "Installing Part-DB (Patience)"
 
 git clone -q https://github.com/Part-DB/Part-DB-symfony.git /var/www/partdb
 cd /var/www/partdb/
 $STD git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 chown -R www-data:www-data /var/www/partdb
-$STD composer install --no-dev -o --no-interaction
+$STD sudo -u www-data composer install --no-dev -o
 $STD yarn install
 $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
