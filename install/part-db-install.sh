@@ -78,7 +78,7 @@ $STD sudo -u www-data composer install --no-dev -o
 $STD yarn install
 $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
-$STD sudo -u www-data php bin/console doctrine:migrations:migrate
+$STD sudo -u www-data php bin/console doctrine:migrations:migrate -n
 
 cat <<EOF >/etc/apache2/sites-available/partdb.conf
 <VirtualHost *:80>
