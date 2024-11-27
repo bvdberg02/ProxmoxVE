@@ -74,7 +74,7 @@ sed -i "s|DATABASE_URL=\"sqlite:///%kernel.project_dir%/var/app.db\"|DATABASE_UR
 
 $STD git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 chown -R www-data:www-data /var/www/partdb
-$STD sudo -u www-data composer install --no-dev -o
+$STD sudo -u www-data composer install --no-dev -o -n
 $STD yarn install
 $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
