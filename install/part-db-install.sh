@@ -68,12 +68,37 @@ msg_info "Installing Part-DB (Patience)"
 
 git clone -q https://github.com/Part-DB/Part-DB-symfony.git /var/www/partdb
 cd /var/www/partdb/
+
+cp .env .env.local
+sed -i "s|DATABASE_URL=\"sqlite:///%kernel.project_dir%/var/app.db\"|DATABASE_URL=\"postgresql://${DB_USER}:${DB_PASS}@127.0.0.1:5432/${DB_NAME}?serverVersion=12.19&charset=utf8\"|" .env.local
+
 $STD git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 chown -R www-data:www-data /var/www/partdb
 $STD sudo -u www-data composer install --no-dev -o
 $STD yarn install
 $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
+$STD sudo -u www-data php bin/console doctrine:migrations:migrate
+
+cat <<EOF >/etc/apache2/sites-available/partdb.conf
+<VirtualHost *:80>
+    DocumentRoot /var/www/partdb/public
+    <Directory /var/www/partdb/public>
+        AllowOverride All
+        Order Allow,Deny
+        Allow from All
+    </Directory>
+
+    ErrorLog /var/log/apache2/partdb_error.log
+    CustomLog /var/log/apache2/partdb_access.log combined
+</VirtualHost>
+EOF
+
+sudo ln -s /etc/apache2/sites-available/partdb.conf /etc/apache2/sites-enabled/partdb.conf
+sudo a2enmod rewrite
+sudo rm /etc/apache2/sites-enabled/000-default.conf
+sudo service apache2 restart
+
 
 msg_ok "Installed Part-DB"
 
