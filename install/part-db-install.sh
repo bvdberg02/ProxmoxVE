@@ -79,8 +79,8 @@ $STD sudo -u www-data composer install --no-dev -o -n
 $STD yarn install
 $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
-sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/database-migration
-ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration)
+sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/database-migration-output
+ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration-output)
 
 {
 echo "Part-DB Admin Credentials"
@@ -114,6 +114,7 @@ motd_ssh
 customize
 
 msg_info "Cleaning up"
+rm -rf ~/database-migration-output
 $STD apt-get -y autoremove
 $STD apt-get -y autoclean
 msg_ok "Cleaned"
