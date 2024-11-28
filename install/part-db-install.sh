@@ -66,14 +66,16 @@ msg_info "Install yarn"
 msg_ok "Installed yarn"
 
 msg_info "Installing Part-DB (Patience)"
+cd /opt
+RELEASE=$(curl -s https://api.github.com/repos/Part-DB/Part-DB-server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
+wget -q "https://github.com/Part-DB/Part-DB-server/archive/refs/tags/v${RELEASE}.zip"
+unzip -q "v${RELEASE}.zip"
+mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
 
-git clone -q https://github.com/Part-DB/Part-DB-symfony.git /var/www/partdb
 cd /var/www/partdb/
-
 cp .env .env.local
 sed -i "s|DATABASE_URL=\"sqlite:///%kernel.project_dir%/var/app.db\"|DATABASE_URL=\"postgresql://${DB_USER}:${DB_PASS}@127.0.0.1:5432/${DB_NAME}?serverVersion=12.19&charset=utf8\"|" .env.local
 
-$STD git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 chown -R www-data:www-data /var/www/partdb
 $STD sudo -u www-data composer install --no-dev -o
 $STD yarn install
@@ -107,7 +109,7 @@ sudo a2enmod rewrite
 sudo rm /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
-
+echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
 msg_ok "Installed Part-DB"
 
 motd_ssh
