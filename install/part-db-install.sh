@@ -68,7 +68,7 @@ msg_ok "Installed yarn"
 msg_info "Installing Part-DB (Patience)"
 cd /opt
 # RELEASE=$(curl -s https://api.github.com/repos/Part-DB/Part-DB-server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
-RELEASE="1.3.0"
+RELEASE="1.13.0"
 wget -q "https://github.com/Part-DB/Part-DB-server/archive/refs/tags/v${RELEASE}.zip"
 unzip -q "v${RELEASE}.zip"
 mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
