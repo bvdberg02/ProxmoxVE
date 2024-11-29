@@ -61,9 +61,9 @@ if [[ ! -d /var/www/partdb ]]; then msg_error "No ${APP} Installation Found!"; e
 RELEASE=$(curl -s https://api.github.com/repos/Part-DB/Part-DB-server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
 if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
 
-  msg_info "Stopping ${APP}"
+  msg_info "Stopping Apache2"
   systemctl stop apache2
-  msg_ok "Stopped ${APP}"
+  msg_ok "Stopped Apache2"
 
   msg_info "Updating $APP to v${RELEASE}"
   mv /var/www/partdb/ /opt/partdb-backup
@@ -72,7 +72,8 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   unzip -q "v${RELEASE}.zip"
   mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
   cd /var/www/partdb/
-  cp "/opt/partdb-backup/.env.local" /var/www/partdb/
+  mv "/opt/partdb-backup/.env.local" /var/www/partdb/
+  mv "/opt/partdb-backup/public/media" /var/www/partdb/public/
   chown -R www-data:www-data /var/www/partdb
   sudo -u www-data composer install --no-dev -o &>/dev/null
   yarn install &>/dev/null
@@ -82,9 +83,9 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
-  msg_info "Starting ${APP}"
-  systemctl start apache2
-  msg_ok "Started ${APP}"
+  msg_info "Starting Apache2"
+  systemctl start Apache2
+  msg_ok "Started Apache2"
 
   msg_info "Cleaning up"
   rm -r "/opt/v${RELEASE}.zip"
