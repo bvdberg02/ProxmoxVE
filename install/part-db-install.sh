@@ -105,10 +105,10 @@ cat <<EOF >/etc/apache2/sites-available/partdb.conf
 </VirtualHost>
 EOF
 
-sudo ln -s /etc/apache2/sites-available/partdb.conf /etc/apache2/sites-enabled/partdb.conf
+ln -s /etc/apache2/sites-available/partdb.conf /etc/apache2/sites-enabled/partdb.conf
 $STD a2enmod rewrite
 rm /etc/apache2/sites-enabled/000-default.conf
-sudo service apache2 restart
+service apache2 restart
 
 echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
 msg_ok "Installed Part-DB"
