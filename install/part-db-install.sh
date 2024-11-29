@@ -18,14 +18,11 @@ $STD apt-get install -y \
   curl \
   sudo \
   mc \
-  git \
   zip \
   ca-certificates \
   software-properties-common \
   apt-transport-https \
   lsb-release \
-  wget \
-  nano \
   php \
   libapache2-mod-php \
   php-opcache \
