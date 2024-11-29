@@ -73,7 +73,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
   cd /var/www/partdb/
   cp "/opt/partdb-backup/.env.local" /var/www/partdb/
-
+  chown -R www-data:www-data /var/www/partdb
   sudo -u www-data composer install --no-dev -o
   yarn install
   yarn install
