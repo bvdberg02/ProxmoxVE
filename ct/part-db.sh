@@ -84,7 +84,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   msg_ok "Updated $APP to v${RELEASE}"
 
   msg_info "Starting Apache2"
-  systemctl start Apache2
+  systemctl start apache2
   msg_ok "Started Apache2"
 
   msg_info "Cleaning up"
