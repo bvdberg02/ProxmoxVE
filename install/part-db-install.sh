@@ -118,6 +118,7 @@ customize
 
 msg_info "Cleaning up"
 rm -rf ~/database-migration-output
+rm -rf "/opt/v${RELEASE}.zip"
 $STD apt-get -y autoremove
 $STD apt-get -y autoclean
 msg_ok "Cleaned"
