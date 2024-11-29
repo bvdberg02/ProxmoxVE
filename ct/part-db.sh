@@ -71,16 +71,18 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   wget -q "https://github.com/Part-DB/Part-DB-server/archive/refs/tags/v${RELEASE}.zip"
   unzip -q "v${RELEASE}.zip"
   mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
+  chown -R www-data:www-data /var/www/partdb
+
   cd /var/www/partdb/
   cp -r "/opt/partdb-backup/.env.local" /var/www/partdb/
   cp -r "/opt/partdb-backup/public/media" /var/www/partdb/public/
-  chown -R www-data:www-data /var/www/partdb
+  cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
+  
   sudo -u www-data composer install --no-dev -o &>/dev/null
   yarn install &>/dev/null
   yarn build &>/dev/null
   sudo -u www-data php bin/console cache:clear &>/dev/null
   sudo -u www-data php bin/console doctrine:migrations:migrate -n &>/dev/null
-  cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 

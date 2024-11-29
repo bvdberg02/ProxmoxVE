@@ -81,6 +81,13 @@ $STD yarn build
 $STD sudo -u www-data php bin/console cache:clear
 sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/database-migration-output
 
+ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration-output)
+{
+echo "Part-DB Admin Credentials"
+echo -e "Part-DB Admin User: \e[32madmin\e[0m"
+echo -e "Part-DB Admin User: \e[32m$ADMIN_PASS\e[0m"
+} >> ~/partdb.creds
+
 cat <<EOF >/etc/apache2/sites-available/partdb.conf
 <VirtualHost *:80>
     ServerName partdb
@@ -95,19 +102,10 @@ cat <<EOF >/etc/apache2/sites-available/partdb.conf
     CustomLog /var/log/apache2/partdb_access.log combined
 </VirtualHost>
 EOF
-
 $STD a2ensite partdb
 $STD a2enmod rewrite
 rm /etc/apache2/sites-enabled/000-default.conf
 service apache2 restart
-
-ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration-output)
-{
-echo "Part-DB Admin Credentials"
-echo -e "Part-DB Admin User: \e[32madmin\e[0m"
-echo -e "Part-DB Admin User: \e[32m$ADMIN_PASS\e[0m"
-} >> ~/partdb.creds
-
 echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
 msg_ok "Installed Part-DB"
 
