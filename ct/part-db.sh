@@ -74,11 +74,11 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   cd /var/www/partdb/
   cp "/opt/partdb-backup/.env.local" /var/www/partdb/
   chown -R www-data:www-data /var/www/partdb
-  sudo -u www-data composer install --no-dev -o
-  yarn install
-  yarn install
-  sudo -u www-data php bin/console cache:clear
-  sudo -u www-data php bin/console doctrine:migrations:migrate -n
+  sudo -u www-data composer install --no-dev -o &>/dev/null
+  yarn install &>/dev/null
+  yarn build &>/dev/null
+  sudo -u www-data php bin/console cache:clear &>/dev/null
+  sudo -u www-data php bin/console doctrine:migrations:migrate -n &>/dev/null
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
