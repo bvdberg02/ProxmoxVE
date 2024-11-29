@@ -80,6 +80,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   yarn build &>/dev/null
   sudo -u www-data php bin/console cache:clear &>/dev/null
   sudo -u www-data php bin/console doctrine:migrations:migrate -n &>/dev/null
+  cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
