@@ -56,47 +56,39 @@ function update_script() {
 header_info
 check_container_storage
 check_container_resources
-if [[ ! -f /etc/systemd/system/netbox.service ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
+if [[ ! -d /var/www/partdb ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
 
-RELEASE=$(curl -s https://api.github.com/repos/netbox-community/netbox/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
+RELEASE=$(curl -s https://api.github.com/repos/Part-DB/Part-DB-server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
 if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
 
   msg_info "Stopping ${APP}"
-  systemctl stop netbox netbox-rq
+  systemctl stop apache2
   msg_ok "Stopped ${APP}"
 
   msg_info "Updating $APP to v${RELEASE}"
-  mv /opt/netbox/ /opt/netbox-backup
+  mv /var/www/partdb/ /opt/partdb-backup
   cd /opt
-  wget -q "https://github.com/netbox-community/netbox/archive/refs/tags/v${RELEASE}.zip"
+  wget -q "https://github.com/Part-DB/Part-DB-server/archive/refs/tags/v${RELEASE}.zip"
   unzip -q "v${RELEASE}.zip"
-  mv /opt/netbox-${RELEASE}/ /opt/netbox/
-  
-  cp -r /opt/netbox-backup/netbox/netbox/configuration.py /opt/netbox/netbox/netbox/
-  cp -r /opt/netbox-backup/netbox/media/ /opt/netbox/netbox/
-  cp -r /opt/netbox-backup/netbox/scripts /opt/netbox/netbox/
-  cp -r /opt/netbox-backup/netbox/reports /opt/netbox/netbox/
-  cp -r /opt/netbox-backup/gunicorn.py /opt/netbox/
+  mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
+  cd /var/www/partdb/
+  mv "/opt/partdb-backup/.env.local" /var/www/partdb/
 
-  if [ -f /opt/netbox-backup/local_requirements.txt ]; then
-    cp -r /opt/netbox-backup/local_requirements.txt /opt/netbox/
-  fi
-
-  if [ -f /opt/netbox-backup/netbox/netbox/ldap_config.py ]; then
-    cp -r /opt/netbox-backup/netbox/netbox/ldap_config.py /opt/netbox/netbox/netbox/
-  fi
-  
-  /opt/netbox/upgrade.sh &>/dev/null
+  sudo -u www-data composer install --no-dev -o
+  yarn install
+  yarn install
+  sudo -u www-data php bin/console cache:clear
+  sudo -u www-data php bin/console doctrine:migrations:migrate -n
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
   msg_info "Starting ${APP}"
-  systemctl start netbox netbox-rq
+  systemctl start apache2
   msg_ok "Started ${APP}"
 
   msg_info "Cleaning up"
   rm -r "/opt/v${RELEASE}.zip"
-  rm -r /opt/netbox-backup
+  rm -r /opt/partdb-backup
   msg_ok "Cleaned"
   msg_ok "Updated Successfully"
 else
