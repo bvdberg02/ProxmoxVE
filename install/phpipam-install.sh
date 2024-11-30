@@ -42,7 +42,36 @@ msg_ok "Set up MariaDB"
 msg_info "Installing phpIPAM"
 cd /opt
 RELEASE=$(curl -s https://api.github.com/repos/phpipam/phpipam/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
-wget -q "https://github.com/phpipam/phpipam/releases/download/v${RELEASE}/listmonk_${RELEASE}_linux_amd64.tar.gz"
+wget -q "https://github.com/phpipam/phpipam/releases/download/v${RELEASE}/phpipam-v${RELEASE}.zip"
+unzip -q "phpipam-v${RELEASE}.zip"
+mv /opt/phpipam /var/www/
+
+mysql -u root "${DB_NAME}" < /var/www/phpipam/db/SCHEMA.sql
+
+cp /var/www/phpipam/config.dist.php /var/www/phpipam/config.php
+sed -i "s/\(\$disable_installer = \).*/\1true;/" /var/www/phpipam/config.php
+sed -i "s/\(\$db\['user'\] = \).*/\1'$DB_USER';/" /var/www/phpipam/config.php
+sed -i "s/\(\$db\['pass'\] = \).*/\1'$DB_PASS';/" /var/www/phpipam/config.php
+sed -i "s/\(\$db\['name'\] = \).*/\1'$DB_NAME';/" /var/www/phpipam/config.php
+
+cat <<EOF >/etc/apache2/sites-available/phpipam.conf
+<VirtualHost *:80>
+    ServerName phpipam
+    DocumentRoot /var/www/phpipam
+    <Directory /var/www/phpipam>
+        AllowOverride All
+        Order Allow,Deny
+        Allow from All
+    </Directory>
+
+    ErrorLog /var/log/apache2/phpipam_error.log
+    CustomLog /var/log/apache2/phpipam_access.log combined
+</VirtualHost>
+EOF
+$STD a2ensite phpipam
+$STD a2enmod rewrite
+rm /etc/apache2/sites-enabled/000-default.conf
+service apache2 restart
 
 echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
 msg_ok "Installed phpIPAM"
@@ -51,7 +80,7 @@ motd_ssh
 customize
 
 msg_info "Cleaning up"
-rm -rf "/opt/listmonk_${RELEASE}_linux_amd64.tar.gz"
+rm -rf "/opt/phpipam-v${RELEASE}.zip"
 $STD apt-get -y autoremove
 $STD apt-get -y autoclean
 msg_ok "Cleaned"
