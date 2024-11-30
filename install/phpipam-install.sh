@@ -42,7 +42,7 @@ msg_ok "Set up MariaDB"
 msg_info "Installing phpIPAM"
 cd /opt
 # RELEASE=$(curl -s https://api.github.com/repos/phpipam/phpipam/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
-RELEASE="1.6.5"
+RELEASE="1.6.0"
 wget -q "https://github.com/phpipam/phpipam/releases/download/v${RELEASE}/phpipam-v${RELEASE}.zip"
 unzip -q "phpipam-v${RELEASE}.zip"
 mv /opt/phpipam /var/www/
