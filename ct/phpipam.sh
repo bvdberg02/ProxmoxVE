@@ -66,6 +66,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   msg_ok "Stopped Apache2"
 
   msg_info "Updating ${APP} to v${RELEASE}"
+  cd /opt
   mv /var/www/phpipam/ /opt/phpipam-backup
   wget -q "https://github.com/phpipam/phpipam/releases/download/v${RELEASE}/phpipam-v${RELEASE}.zip"
   unzip -q "phpipam-v${RELEASE}.zip"
