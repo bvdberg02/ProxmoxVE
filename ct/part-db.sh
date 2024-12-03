@@ -76,7 +76,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   cp -r "/opt/partdb-backup/public/media" /var/www/partdb/public/
   cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
   
-  composer install --no-dev --prefer-source --no-plugins --no-scripts &>/dev/null
+  composer install --no-dev --no-plugins --no-interaction &>/dev/null
   yarn install &>/dev/null
   yarn build &>/dev/null
   php bin/console cache:clear &>/dev/null
