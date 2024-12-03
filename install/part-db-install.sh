@@ -59,13 +59,13 @@ cd /opt
 RELEASE="1.13.0"
 wget -q "https://github.com/Part-DB/Part-DB-server/archive/refs/tags/v${RELEASE}.zip"
 unzip -q "v${RELEASE}.zip"
-mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
+mv /opt/Part-DB-server-${RELEASE}/ /opt/partdb
 
-cd /var/www/partdb/
+cd /opt/partdb/
 cp .env .env.local
 sed -i "s|DATABASE_URL=\"sqlite:///%kernel.project_dir%/var/app.db\"|DATABASE_URL=\"postgresql://${DB_USER}:${DB_PASS}@127.0.0.1:5432/${DB_NAME}?serverVersion=12.19&charset=utf8\"|" .env.local
 
-chown -R www-data:www-data /var/www/partdb
+chown -R www-data:www-data /opt/partdb
 export COMPOSER_ALLOW_SUPERUSER=1
 $STD composer install --no-dev -o --no-interaction
 $STD yarn install
@@ -86,8 +86,8 @@ msg_info "Creating Service"
 cat <<EOF >/etc/apache2/sites-available/partdb.conf
 <VirtualHost *:80>
     ServerName partdb
-    DocumentRoot /var/www/partdb/public
-    <Directory /var/www/partdb/public>
+    DocumentRoot /opt/partdb/public
+    <Directory /opt/partdb/public>
         AllowOverride All
         Order Allow,Deny
         Allow from All
