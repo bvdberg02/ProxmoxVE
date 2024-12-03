@@ -57,13 +57,11 @@ header_info
 check_container_storage
 check_container_resources
 if [[ ! -d /var/www/partdb ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
-
 RELEASE=$(curl -s https://api.github.com/repos/Part-DB/Part-DB-server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
 if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
-
-  msg_info "Stopping Apache2"
+  msg_info "Stopping Service"
   systemctl stop apache2
-  msg_ok "Stopped Apache2"
+  msg_ok "Stopped Service"
 
   msg_info "Updating $APP to v${RELEASE}"
   mv /var/www/partdb/ /opt/partdb-backup
@@ -78,7 +76,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   cp -r "/opt/partdb-backup/public/media" /var/www/partdb/public/
   cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
   
-  sudo -u www-data composer install --no-dev -o &>/dev/null
+  composer install --no-dev -o &>/dev/null
   yarn install &>/dev/null
   yarn build &>/dev/null
   sudo -u www-data php bin/console cache:clear &>/dev/null

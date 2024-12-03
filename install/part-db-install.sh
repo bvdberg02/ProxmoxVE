@@ -23,19 +23,8 @@ $STD apt-get install -y \
   software-properties-common \
   apt-transport-https \
   lsb-release \
-  php \
+  php-{opcache,curl,gd,mbstring,xml,bcmath,intl,zip,xsl,pgsql} \
   libapache2-mod-php \
-  php-opcache \
-  php-curl \
-  php-gd \
-  php-mbstring \
-  php-xml \
-  php-bcmath \
-  php-intl \
-  php-zip \
-  php-xsl \
-  php-pgsql \
-  nodejs \
   composer \
   postgresql
 msg_ok "Installed Dependencies"
@@ -47,20 +36,22 @@ DB_PASS=$(openssl rand -base64 18 | tr -dc 'a-zA-Z0-9' | cut -c1-13)
 $STD sudo -u postgres psql -c "CREATE ROLE $DB_USER WITH LOGIN PASSWORD '$DB_PASS';"
 $STD sudo -u postgres psql -c "CREATE DATABASE $DB_NAME WITH OWNER $DB_USER TEMPLATE template0;"
 {
-echo "Part-DB Database Credentials"
-echo -e "Part-DB Database User: \e[32m$DB_USER\e[0m"
-echo -e "Part-DB Database Password: \e[32m$DB_PASS\e[0m"
-echo -e "Part-DB Database Name: \e[32m$DB_NAME\e[0m"
-echo ""
+echo "Part-DB Credentials"
+echo "Part-DB Database User: $DB_USER"
+echo "Part-DB Database Password: $DB_PASS"
+echo "Part-DB Database Name: $DB_NAME"
 } >> ~/partdb.creds
 msg_ok "Set up PostgreSQL"
 
-msg_info "Install yarn"
-  curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg |  gpg --dearmor -o /usr/share/keyrings/yarnkey.gpg
-  echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" >/etc/apt/sources.list.d/yarn.list
-  $STD apt-get update
-  $STD apt-get install -y yarn
-msg_ok "Installed yarn"
+msg_info "Setting up Node.js/Yarn"
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" >/etc/apt/sources.list.d/nodesource.list
+$STD apt-get update
+$STD apt-get install -y nodejs
+$STD npm install -g npm@latest
+$STD npm install -g yarn
+msg_ok "Installed Node.js/Yarn"
 
 msg_info "Installing Part-DB (Patience)"
 cd /opt
@@ -83,11 +74,14 @@ sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/database-mig
 
 ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration-output)
 {
-echo "Part-DB Admin Credentials"
-echo -e "Part-DB Admin User: \e[32madmin\e[0m"
-echo -e "Part-DB Admin User: \e[32m$ADMIN_PASS\e[0m"
+echo ""
+echo "Part-DB Admin User: admin"
+echo "Part-DB Admin Password: $ADMIN_PASS"
 } >> ~/partdb.creds
+echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
+msg_ok "Installed Part-DB"
 
+msg_info "Creating Service"
 cat <<EOF >/etc/apache2/sites-available/partdb.conf
 <VirtualHost *:80>
     ServerName partdb
@@ -104,10 +98,9 @@ cat <<EOF >/etc/apache2/sites-available/partdb.conf
 EOF
 $STD a2ensite partdb
 $STD a2enmod rewrite
-rm /etc/apache2/sites-enabled/000-default.conf
-service apache2 restart
-echo "${RELEASE}" >/opt/${APPLICATION}_version.txt
-msg_ok "Installed Part-DB"
+$STD a2dissite 000-default.conf
+$STD systemctl reload apache2
+msg_ok "Created Service"
 
 motd_ssh
 customize
