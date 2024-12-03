@@ -71,7 +71,7 @@ $STD composer install --no-dev -o --no-interaction
 $STD yarn install
 $STD yarn build
 $STD php bin/console cache:clear
-sudo -u www-data php bin/console doctrine:migrations:migrate -n > ~/database-migration-output
+php bin/console doctrine:migrations:migrate -n > ~/database-migration-output
 
 ADMIN_PASS=$(grep -oP 'The initial password for the "admin" user is: \K\w+' ~/database-migration-output)
 {
