@@ -76,11 +76,12 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   cp -r "/opt/partdb-backup/public/media" /var/www/partdb/public/
   cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
   
-  composer install --no-dev --no-plugins --no-interaction &>/dev/null
+  export COMPOSER_ALLOW_SUPERUSER=1
+  composer install --no-dev -o --no-interaction &>/dev/null
   yarn install &>/dev/null
   yarn build &>/dev/null
-  sudo -u www-data php bin/console cache:clear &>/dev/null
-  sudo -u www-data php bin/console doctrine:migrations:migrate -n &>/dev/null
+  php bin/console cache:clear &>/dev/null
+  php bin/console doctrine:migrations:migrate -n &>/dev/null
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
