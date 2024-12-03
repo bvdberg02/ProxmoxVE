@@ -66,7 +66,7 @@ cp .env .env.local
 sed -i "s|DATABASE_URL=\"sqlite:///%kernel.project_dir%/var/app.db\"|DATABASE_URL=\"postgresql://${DB_USER}:${DB_PASS}@127.0.0.1:5432/${DB_NAME}?serverVersion=12.19&charset=utf8\"|" .env.local
 
 chown -R www-data:www-data /var/www/partdb
-export COMPOSER_ALLOW_SUPERUSER=1
+
 $STD composer install --no-dev -o --no-interaction
 $STD yarn install
 $STD yarn build
