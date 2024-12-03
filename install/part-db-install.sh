@@ -88,9 +88,9 @@ cat <<EOF >/etc/apache2/sites-available/partdb.conf
     ServerName partdb
     DocumentRoot /opt/partdb/public
     <Directory /opt/partdb/public>
+        Options FollowSymLinks
         AllowOverride All
-        Order Allow,Deny
-        Allow from All
+        Require all granted
     </Directory>
 
     ErrorLog /var/log/apache2/partdb_error.log
