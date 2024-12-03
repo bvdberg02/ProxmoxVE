@@ -56,7 +56,7 @@ function update_script() {
 header_info
 check_container_storage
 check_container_resources
-if [[ ! -d /var/www/partdb ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
+if [[ ! -d /opt/partdb ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
 RELEASE=$(curl -s https://api.github.com/repos/Part-DB/Part-DB-server/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
 if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
   msg_info "Stopping Service"
@@ -64,17 +64,17 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   msg_ok "Stopped Service"
 
   msg_info "Updating $APP to v${RELEASE}"
-  mv /var/www/partdb/ /opt/partdb-backup
+  mv /opt/partdb/ /opt/partdb-backup
   cd /opt
   wget -q "https://github.com/Part-DB/Part-DB-server/archive/refs/tags/v${RELEASE}.zip"
   unzip -q "v${RELEASE}.zip"
-  mv /opt/Part-DB-server-${RELEASE}/ /var/www/partdb
+  mv /opt/Part-DB-server-${RELEASE}/ /opt/partdb
   
 
-  cd /var/www/partdb/
-  cp -r "/opt/partdb-backup/.env.local" /var/www/partdb/
-  cp -r "/opt/partdb-backup/public/media" /var/www/partdb/public/
-  cp -r "/opt/partdb-backup/config/banner.md" /var/www/partdb/config/
+  cd /opt/partdb/
+  cp -r "/opt/partdb-backup/.env.local" /opt/partdb/
+  cp -r "/opt/partdb-backup/public/media" /opt/partdb/public/
+  cp -r "/opt/partdb-backup/config/banner.md" /opt/partdb/config/
   
   export COMPOSER_ALLOW_SUPERUSER=1
   composer install --no-dev -o --no-interaction &>/dev/null
@@ -82,7 +82,7 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   yarn build &>/dev/null
   php bin/console cache:clear &>/dev/null
   php bin/console doctrine:migrations:migrate -n &>/dev/null
-  chown -R www-data:www-data /var/www/partdb
+  chown -R www-data:www-data /opt/partdb
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
