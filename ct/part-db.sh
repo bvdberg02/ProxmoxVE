@@ -79,8 +79,8 @@ if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_v
   composer install --no-dev --no-plugins --no-interaction &>/dev/null
   yarn install &>/dev/null
   yarn build &>/dev/null
-  php bin/console cache:clear &>/dev/null
-  php bin/console doctrine:migrations:migrate -n &>/dev/null
+  sudo -u www-data php bin/console cache:clear &>/dev/null
+  sudo -u www-data php bin/console doctrine:migrations:migrate -n &>/dev/null
   echo "${RELEASE}" >/opt/${APP}_version.txt
   msg_ok "Updated $APP to v${RELEASE}"
 
